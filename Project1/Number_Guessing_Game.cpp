@@ -14,11 +14,19 @@ int main() {
     cout<<NumToGuess<<endl;
     cout<<"A random number has been generated,Try to guess it"<<endl;
     cout<<"Number of attemps you want:";
-    cin>>MaxAt;
+    while (!(cin >> MaxAt) || MaxAt <= 0) {
+        cout << "Invalid input! Please enter a positive integer: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
     cout<<"You have "<<MaxAt<<" attemps"<<endl;
     while(RemAt<=MaxAt){
         cout<<RemAt<<"/"<<MaxAt<<" attemp:";
-        cin>>UserGuess;
+        while (!(cin >> UserGuess)) {
+            cout << "Invalid input! Please enter a number:";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
         if(UserGuess<NumToGuess){
             cout<<"Too Low"<<endl;
             RemAt+=1;
