@@ -1,2 +1,2 @@
 # Projects
-Micro IT internship projects
+simple basic projects
